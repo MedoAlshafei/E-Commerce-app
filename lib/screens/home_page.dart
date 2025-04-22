@@ -32,11 +32,9 @@ class HomePage extends StatelessWidget {
           future: AllProductService().getAllProducts(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
-            } else {
               List<ProductModel> products = snapshot.data!;
               return GridView.builder(
-                itemCount: 5,
+                itemCount: products.length,
                 clipBehavior: Clip.none,
                 physics: const BouncingScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -45,10 +43,14 @@ class HomePage extends StatelessWidget {
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 100,
                 ),
-                itemBuilder:
-                    (BuildContext context, int index) =>
-                        MyCard(product: products[index]),
+                itemBuilder: (BuildContext context, int index) {
+                  return MyCard(product: products[index]);
+                },
               );
+            } else if (snapshot.hasError) {
+              return Center(child: Text('${snapshot.error}'));
+            } else {
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),
@@ -58,9 +60,9 @@ class HomePage extends StatelessWidget {
 }
 
 class MyCard extends StatelessWidget {
-  MyCard({super.key, required this.product});
+  const MyCard({super.key, required this.product});
 
-  ProductModel product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,7 @@ class MyCard extends StatelessWidget {
               ],
             ),
             child: Card(
-              color: Colors.grey[300],
+              color: Colors.grey[100],
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -91,10 +93,12 @@ class MyCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hand Bag Lv',
+                      '${product.title.toString().substring(0, 15)}...',
+                      overflow: TextOverflow.values.first,
+                      maxLines: 1,
                       style: TextStyle(color: Colors.grey, fontSize: 16),
                     ),
-                    SizedBox(height: 3),
+                    SizedBox(height: MediaQuery.of(context).size.height / 100),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,8 +117,8 @@ class MyCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 16,
-            top: -60,
+            right: 26,
+            top: -50,
             child: Image.network(product.image, height: 100, width: 100),
           ),
         ],
