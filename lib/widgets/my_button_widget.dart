@@ -5,12 +5,12 @@ class MyButton extends StatelessWidget {
     super.key,
     required this.color,
     required this.text,
-    this.onPressed,
+    required this.onTap,
   });
 
   final Color color;
   final String text;
-  final VoidCallback? onPressed;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,9 @@ class MyButton extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(20),
         child: MaterialButton(
-          onPressed: onPressed,
-          minWidth: 200,
-          height: 42,
+          onPressed: onTap,
+          minWidth: MediaQuery.of(context).size.width / 1.2,
+          height: MediaQuery.of(context).size.height / 13,
           child: Text(
             text,
             style: TextStyle(color: Colors.white, fontSize: 20),
