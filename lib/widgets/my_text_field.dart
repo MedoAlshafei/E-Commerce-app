@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 
-class MyTextFormField extends StatelessWidget {
-  const MyTextFormField({super.key, this.hinttext, this.onChanged});
+class MyTextField extends StatelessWidget {
+  const MyTextField({super.key, this.hinttext, this.onChanged, this.inputType});
 
   final String? hinttext;
   final Function(String)? onChanged;
+  final TextInputType? inputType;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      child: TextFormField(
-        validator: (data) {
-          if (data!.isEmpty) {
-            return 'Field is required';
-          }
-          return null;
-        },
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: TextField(
         onChanged: onChanged,
+        keyboardType: inputType,
         decoration: InputDecoration(
           hintText: hinttext,
           enabledBorder: OutlineInputBorder(
