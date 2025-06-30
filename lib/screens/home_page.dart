@@ -11,7 +11,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        scrolledUnderElevation: 0,
+        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         actions: [
@@ -33,16 +34,16 @@ class HomePage extends StatelessWidget {
           future: AllProductService().getAllProducts(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              List<ProductModel> products = snapshot.data!;
+              final List<ProductModel> products = snapshot.data!;
               return GridView.builder(
                 itemCount: products.length,
                 clipBehavior: Clip.none,
                 physics: const BouncingScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 1.5,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 100,
+                  childAspectRatio: 1.6,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 60,
                 ),
                 itemBuilder: (BuildContext context, int index) {
                   return ItemCard(product: products[index]);
