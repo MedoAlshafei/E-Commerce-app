@@ -34,28 +34,28 @@ class _StoreAppState extends State<StoreApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primaryColor: Colors.amber[700],
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
-          foregroundColor: Colors.deepPurple,
+          foregroundColor: Colors.amber,
           elevation: 0,
           titleTextStyle: TextStyle(
-            color: Colors.deepPurple,
+            color: Colors.amber,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
         ),
         textTheme: const TextTheme(
           titleLarge: TextStyle(
-            color: Colors.deepPurple,
+            color: Colors.amber,
             fontWeight: FontWeight.bold,
           ),
           bodyMedium: TextStyle(color: Colors.black87),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Colors.amber,
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -66,35 +66,35 @@ class _StoreAppState extends State<StoreApp> {
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.deepPurple),
+            borderSide: BorderSide(color: Colors.amber),
           ),
         ),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: Colors.deepPurple,
-        scaffoldBackgroundColor: Color(0xFF181829),
+        primaryColor: Colors.amber[700],
+        scaffoldBackgroundColor: Colors.black,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF23234A),
-          foregroundColor: Colors.deepPurpleAccent,
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.amber,
           elevation: 0,
           titleTextStyle: TextStyle(
-            color: Colors.deepPurpleAccent,
+            color: Colors.amber,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
         ),
         textTheme: const TextTheme(
           titleLarge: TextStyle(
-            color: Colors.deepPurpleAccent,
+            color: Colors.amber,
             fontWeight: FontWeight.bold,
           ),
           bodyMedium: TextStyle(color: Colors.white70),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.deepPurpleAccent,
-            foregroundColor: Colors.white,
+            backgroundColor: Colors.amber,
+            foregroundColor: Colors.black,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
@@ -104,7 +104,7 @@ class _StoreAppState extends State<StoreApp> {
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.deepPurpleAccent),
+            borderSide: BorderSide(color: Colors.amber),
           ),
         ),
       ),

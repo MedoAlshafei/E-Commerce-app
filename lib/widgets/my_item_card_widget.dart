@@ -9,6 +9,9 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final height = size.height;
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, UpdateProductPage.id, arguments: product);
@@ -21,19 +24,19 @@ class ItemCard extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: const Color.fromARGB(169, 158, 158, 158),
-                    blurRadius: 20,
+                    color: Colors.grey.withAlpha(120),
+                    blurRadius: 10,
                     spreadRadius: 0,
-                    offset: Offset(0.2, 1.5),
+                    offset: Offset(0.2, 0.5),
                   ),
                 ],
               ),
               child: Card(
                 color: Theme.of(context).cardColor,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: width * 0.04,
+                    vertical: height * 0.015,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -47,9 +50,7 @@ class ItemCard extends StatelessWidget {
                           context,
                         ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height / 100,
-                      ),
+                      SizedBox(height: height * 0.01),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

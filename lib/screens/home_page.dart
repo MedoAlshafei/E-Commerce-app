@@ -16,6 +16,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final height = size.height;
+
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
@@ -39,11 +43,11 @@ class HomePage extends StatelessWidget {
         title: Text('New Trend', style: Theme.of(context).textTheme.titleLarge),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(
-          top: 65,
-          left: 16,
-          right: 16,
-          bottom: 24,
+        padding: EdgeInsets.only(
+          top: height * 0.08, // بدل 65
+          left: width * 0.04, // بدل 16
+          right: width * 0.04, // بدل 16
+          bottom: height * 0.03, // بدل 24
         ),
         child: FutureBuilder<List<ProductModel>>(
           future: AllProductService().getAllProducts(),
@@ -54,11 +58,12 @@ class HomePage extends StatelessWidget {
                 itemCount: products.length,
                 clipBehavior: Clip.none,
                 physics: const BouncingScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 1.6,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 60,
+                  childAspectRatio:
+                      width / (height * 0.30), // تقريباً 1.6 حسب النسبة الأصلية
+                  crossAxisSpacing: width * 0.06, // بدل 8
+                  mainAxisSpacing: height * 0.07, // بدل 60
                 ),
                 itemBuilder: (BuildContext context, int index) {
                   return ItemCard(product: products[index]);

@@ -14,6 +14,9 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final height = size.height;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Material(
@@ -22,8 +25,8 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: MaterialButton(
           onPressed: onTap,
-          minWidth: MediaQuery.of(context).size.width / 1.2,
-          height: MediaQuery.of(context).size.height / 13,
+          minWidth: width * 0.8,
+          height: height * 0.07,
           child: Text(
             text,
             style: TextStyle(
