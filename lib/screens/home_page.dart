@@ -4,24 +4,39 @@ import 'package:shop/services/get_all_product_service.dart';
 import 'package:shop/widgets/my_item_card_widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({
+    super.key,
+    required this.onToggleTheme,
+    required this.themeMode,
+  });
   static const String id = 'homePage';
+
+  final VoidCallback onToggleTheme;
+  final ThemeMode themeMode;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         scrolledUnderElevation: 0,
-        backgroundColor: Colors.white,
-        elevation: 0,
         centerTitle: true,
         actions: [
           IconButton(
+            onPressed: onToggleTheme,
+            icon: Icon(
+              themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode,
+              color: Theme.of(context).iconTheme.color,
+            ),
+          ),
+          IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.shopping_cart_rounded, color: Colors.black),
+            icon: Icon(
+              Icons.shopping_cart_rounded,
+              color: Theme.of(context).iconTheme.color,
+            ),
           ),
         ],
-        title: const Text('New Trend', style: TextStyle(color: Colors.black)),
+        title: Text('New Trend', style: Theme.of(context).textTheme.titleLarge),
       ),
       body: Padding(
         padding: const EdgeInsets.only(

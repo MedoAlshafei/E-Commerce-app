@@ -29,7 +29,7 @@ class ItemCard extends StatelessWidget {
                 ],
               ),
               child: Card(
-                color: Colors.grey[100],
+                color: Theme.of(context).cardColor,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
@@ -43,7 +43,9 @@ class ItemCard extends StatelessWidget {
                         '${product.title.toString().substring(0, 15)}...',
                         overflow: TextOverflow.values.first,
                         maxLines: 1,
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height / 100,
@@ -55,9 +57,12 @@ class ItemCard extends StatelessWidget {
                           Text(
                             r'$'
                             '${product.price.toString()}',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
-                          Icon(Icons.favorite, color: Colors.red),
+                          Icon(
+                            Icons.favorite,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
                         ],
                       ),
                     ],

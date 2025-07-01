@@ -8,6 +8,7 @@ class AddProductService {
     required String desc,
     required String image,
     required String category,
+    String? token,
   }) async {
     Map<String, dynamic> data = await Api().post(
       url: 'https://fakestoreapi.com/products',
@@ -18,6 +19,7 @@ class AddProductService {
         'image': image,
         'category': category,
       },
+      token: token,
     );
     return ProductModel.fromJson(data);
   }

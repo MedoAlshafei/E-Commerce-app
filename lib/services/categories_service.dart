@@ -5,9 +5,11 @@ import '../helper/api.dart';
 class CategoriesService {
   Future<List<ProductModel>> getAllCategories({
     required String categoryName,
+    String? token,
   }) async {
     List<dynamic> data = await Api().get(
       url: "https://fakestoreapi.com/products/category/$categoryName",
+      token: token,
     );
     List<ProductModel> productsList = [];
     for (int i = 0; i < data.length; i++) {

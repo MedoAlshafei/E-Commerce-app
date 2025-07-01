@@ -3,9 +3,10 @@ import 'package:shop/models/product_model.dart';
 import '../helper/api.dart';
 
 class AllProductService {
-  Future<List<ProductModel>> getAllProducts() async {
+  Future<List<ProductModel>> getAllProducts({String? token}) async {
     List<dynamic> data = await Api().get(
       url: "https://fakestoreapi.com/products",
+      token: token,
     );
 
     List<ProductModel> productsList = [];
