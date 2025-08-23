@@ -2,46 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:shop/models/product_model.dart';
 import 'package:shop/services/get_all_product_service.dart';
 import 'package:shop/widgets/my_item_card_widget.dart';
+import 'package:shop/widgets/nav_bar.dart';
+
+import '../theme/my_colors.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-    required this.onToggleTheme,
-    required this.themeMode,
-  });
+  const HomePage({super.key});
   static const String id = 'homePage';
-
-  final VoidCallback onToggleTheme;
-  final ThemeMode themeMode;
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final padding = MediaQuery.paddingOf(context);
+    final statusBarHeight = padding.top;
+    final bottomBarHeight = padding.bottom;
+
+    final size = MediaQuery.sizeOf(context);
     final width = size.width;
     final height = size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: onToggleTheme,
-            icon: Icon(
-              themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart_rounded,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-        ],
-        title: Text('New Trend', style: Theme.of(context).textTheme.titleLarge),
-      ),
+      // appBar: AppBar(
+      //   scrolledUnderElevation: 0,
+      //   centerTitle: true,
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {},
+      //       icon: Icon(
+      //         Icons.shopping_cart_rounded,
+      //         color: Theme.of(context).iconTheme.color,
+      //       ),
+      //     ),
+      //   ],
+      //   title: Text('New Trend', style: Theme.of(context).textTheme.titleLarge),
+      // ),
       body: Padding(
         padding: EdgeInsets.only(
           top: height * 0.08, // بدل 65
@@ -77,6 +70,7 @@ class HomePage extends StatelessWidget {
           },
         ),
       ),
+      bottomNavigationBar: NavBar(width: width),
     );
   }
 }
