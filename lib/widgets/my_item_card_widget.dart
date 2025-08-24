@@ -12,7 +12,7 @@ class ItemCard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final width = size.width;
     final height = size.height;
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         Navigator.pushNamed(context, UpdateProductPage.id, arguments: product);
       },

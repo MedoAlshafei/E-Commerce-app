@@ -5,7 +5,9 @@ import '../models/nav_bar_model.dart';
 class NavBar extends StatefulWidget {
   final double width;
 
-  const NavBar({super.key, required this.width});
+  final double bottomBarHeight;
+
+  const NavBar({super.key, required this.width, required this.bottomBarHeight});
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -65,7 +67,12 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.only(
+          // top: widget.bottomBarHeight + 4,
+          left: widget.width * 0.02,
+          right: widget.width * 0.02,
+          bottom: widget.bottomBarHeight + 8,
+        ),
         child: Container(
           height: 60,
           margin: EdgeInsets.symmetric(horizontal: widget.width * 0.04),
@@ -74,9 +81,9 @@ class _NavBarState extends State<NavBar> {
             borderRadius: BorderRadius.all(Radius.circular(44)),
             boxShadow: [
               BoxShadow(
-                color: MyColors.greyDark.withAlpha(90),
+                color: MyColors.grey2,
                 offset: Offset(0, 20),
-                blurRadius: 20,
+                blurRadius: 18,
               ),
             ],
           ),
