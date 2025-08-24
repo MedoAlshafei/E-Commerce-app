@@ -21,7 +21,13 @@ class CustomerBar extends StatelessWidget {
   Widget profileImage() {
     const String profileImage = 'assets/boy.png';
     return CircleAvatar(
-      child: Image.asset(profileImage, fit: BoxFit.cover, height: 32),
+      child: Image.asset(
+        profileImage,
+        // fit: BoxFit.fill,
+        // height: 32,
+        // color: Colors.black,
+        // scale: 32,
+      ),
     );
   }
 
