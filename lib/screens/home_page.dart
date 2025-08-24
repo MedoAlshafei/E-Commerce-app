@@ -3,6 +3,7 @@ import 'package:shop/theme/my_colors.dart';
 import 'package:shop/widgets/customer_bar.dart';
 import 'package:shop/widgets/home_page_item_builder.dart';
 import 'package:shop/widgets/nav_bar.dart';
+import 'package:shop/widgets/search_bar_and_filter_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
                 slivers: [
                   SliverToBoxAdapter(child: CustomerBar()),
                   SliverToBoxAdapter(child: SizedBox(height: 16)),
-                  SliverToBoxAdapter(child: SearchBar()),
+                  SliverToBoxAdapter(child: SearchBarAndFilterButton()),
                   SliverToBoxAdapter(
                     child: HomePageItemBuilder(height: height, width: width),
                   ),

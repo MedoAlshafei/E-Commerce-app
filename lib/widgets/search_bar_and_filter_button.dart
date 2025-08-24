@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shop/theme/my_colors.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
+class SearchBarAndFilterButton extends StatelessWidget {
+  const SearchBarAndFilterButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class SearchBar extends StatelessWidget {
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide(color: MyColors.greyDark, width: 1),
+                borderSide: BorderSide(color: Colors.grey, width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
