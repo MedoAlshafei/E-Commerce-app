@@ -14,8 +14,7 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int _selectedIndex = 0;
-
+  int selectedIndex = 0;
   late List<NavBarModel> _navItems;
 
   @override
@@ -55,7 +54,7 @@ class _NavBarState extends State<NavBar> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
       // Update selection state for all items
       for (int i = 0; i < _navItems.length; i++) {
         _navItems[i] = _navItems[i].copyWith(isSelected: i == index);
