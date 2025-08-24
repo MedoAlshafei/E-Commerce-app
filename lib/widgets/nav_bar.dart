@@ -71,7 +71,7 @@ class _NavBarState extends State<NavBar> {
           // top: widget.bottomBarHeight + 4,
           left: widget.width * 0.02,
           right: widget.width * 0.02,
-          bottom: widget.bottomBarHeight + 8,
+          bottom: widget.bottomBarHeight + 16,
         ),
         child: Container(
           height: 60,
@@ -81,9 +81,19 @@ class _NavBarState extends State<NavBar> {
             borderRadius: BorderRadius.all(Radius.circular(44)),
             boxShadow: [
               BoxShadow(
-                color: MyColors.grey2,
+                color: Colors.white.withAlpha(150),
+                offset: Offset(0, -40),
+                blurRadius: 20,
+              ),
+              BoxShadow(
+                color: Colors.white.withAlpha(170),
+                offset: Offset(0, -20),
+                blurRadius: 25,
+              ),
+              BoxShadow(
+                color: Colors.white,
                 offset: Offset(0, 20),
-                blurRadius: 18,
+                blurRadius: 20,
               ),
             ],
           ),
