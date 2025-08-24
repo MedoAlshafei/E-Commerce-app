@@ -5,9 +5,9 @@ class CustomerBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-    final width = size.width;
-    final height = size.height;
+    // final size = MediaQuery.sizeOf(context);
+    // final width = size.width;
+    // final height = size.height;
 
     return SizedBox(
       height: 46,
