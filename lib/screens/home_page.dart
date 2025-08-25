@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/theme/my_colors.dart';
+import 'package:shop/widgets/category_bar.dart';
 import 'package:shop/widgets/customer_bar.dart';
 import 'package:shop/widgets/home_page_item_builder.dart';
 import 'package:shop/widgets/nav_bar.dart';
@@ -34,8 +35,11 @@ class HomePage extends StatelessWidget {
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(child: CustomerBar()),
-                  SliverToBoxAdapter(child: SizedBox(height: 16)),
+                  SliverToBoxAdapter(child: SizedBox(height: height * 0.02)),
                   SliverToBoxAdapter(child: SearchBarAndFilterButton()),
+                  SliverToBoxAdapter(child: SizedBox(height: height * 0.02)),
+                  // INSERT_YOUR_CODE
+                  SliverToBoxAdapter(child: CategoryBar()),
                   SliverToBoxAdapter(
                     child: HomePageItemBuilder(height: height, width: width),
                   ),

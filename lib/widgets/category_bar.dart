@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+import 'package:shop/theme/my_colors.dart';
+
+class CategoryBar extends StatelessWidget {
+  const CategoryBar({super.key});
+  static const categories = [
+    {'icon': Icons.category_rounded, 'name': 'All Items'},
+    {'icon': Icons.electrical_services_rounded, 'name': 'Electronics'},
+    {'icon': Icons.fastfood, 'name': 'Dress'},
+    {'icon': Icons.icecream, 'name': 'T-Shirt'},
+    {'icon': Icons.icecream, 'name': 'Jeans'},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 34,
+      // width: double.infinity,
+      child: StatefulBuilder(
+        builder: (context, setState) {
+          int selectedIndex = 0;
+          // Use a key to persist selection in StatefulBuilder
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                separatorBuilder: (context, index) => SizedBox(width: 12),
+                itemBuilder: (context, index) {
+                  final category = categories[index];
+                  final isSelected = index == selectedIndex;
+                  final buttonChild = Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        category['icon'] as IconData,
+                        color: isSelected ? Colors.white : MyColors.greyDark,
+                        size: 16,
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        category['name'] as String,
+                        style: TextStyle(
+                          color: isSelected ? Colors.white : MyColors.greyDark,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  );
+                  if (isSelected) {
+                    return ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: MyColors.greyDark,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 18,
+                          vertical: 10,
+                        ),
+                        elevation: 0,
+                      ),
+                      child: buttonChild,
+                    );
+                  } else {
+                    return OutlinedButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      style: OutlinedButton.styleFrom(
+                        side: BorderSide(color: MyColors.greyDark, width: 1.2),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 18,
+                          vertical: 10,
+                        ),
+                        foregroundColor: MyColors.greyDark,
+                      ),
+                      child: buttonChild,
+                    );
+                  }
+                },
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
