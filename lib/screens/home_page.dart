@@ -38,7 +38,6 @@ class HomePage extends StatelessWidget {
                   SliverToBoxAdapter(child: SizedBox(height: height * 0.02)),
                   SliverToBoxAdapter(child: SearchBarAndFilterButton()),
                   SliverToBoxAdapter(child: SizedBox(height: height * 0.02)),
-                  // INSERT_YOUR_CODE
                   SliverToBoxAdapter(child: CategoryBar()),
                   SliverToBoxAdapter(
                     child: HomePageItemBuilder(height: height, width: width),

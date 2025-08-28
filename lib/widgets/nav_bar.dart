@@ -81,7 +81,7 @@ class _NavBarState extends State<NavBar> {
             boxShadow: [
               BoxShadow(
                 color: Colors.white.withAlpha(150),
-                offset: Offset(0, -40),
+                offset: Offset(0, -30),
                 blurRadius: 20,
               ),
               BoxShadow(

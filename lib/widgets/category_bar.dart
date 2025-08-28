@@ -25,7 +25,7 @@ class CategoryBar extends StatelessWidget {
               return ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
-                separatorBuilder: (context, index) => SizedBox(width: 12),
+                separatorBuilder: (context, index) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {
                   final category = categories[index];
                   final isSelected = index == selectedIndex;
@@ -37,7 +37,7 @@ class CategoryBar extends StatelessWidget {
                         color: isSelected ? Colors.white : MyColors.greyDark,
                         size: 16,
                       ),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Text(
                         category['name'] as String,
                         style: TextStyle(
@@ -73,6 +73,7 @@ class CategoryBar extends StatelessWidget {
                         });
                       },
                       style: OutlinedButton.styleFrom(
+                        foregroundColor: MyColors.greyDark,
                         side: BorderSide(color: MyColors.greyDark, width: 1.2),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
@@ -81,7 +82,6 @@ class CategoryBar extends StatelessWidget {
                           horizontal: 18,
                           vertical: 10,
                         ),
-                        foregroundColor: MyColors.greyDark,
                       ),
                       child: buttonChild,
                     );
