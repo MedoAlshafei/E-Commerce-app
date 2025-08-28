@@ -10,12 +10,12 @@ class AppTheme {
       textTheme: GoogleFonts.encodeSansTextTheme(),
       appBarTheme: AppBarTheme(
         backgroundColor: MyColors.background,
-        foregroundColor: MyColors.primary,
+        foregroundColor: MyColors.black,
         elevation: 0,
         titleTextStyle: GoogleFonts.encodeSans(
-          color: MyColors.primary,
+          color: MyColors.black,
           fontWeight: FontWeight.bold,
-          fontSize: 20,
+          fontSize: 24,
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
