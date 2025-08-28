@@ -35,7 +35,7 @@ class CustomerBar extends StatelessWidget {
     const String helloWelcome = 'Hello, Welcome 👋';
     const String userName = 'Albert Stevano';
 
-    return Column(
+    return const Column(
       children: [
         Text(
           helloWelcome,

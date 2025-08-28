@@ -34,11 +34,11 @@ class HomePage extends StatelessWidget {
               ),
               child: CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(child: CustomerBar()),
+                  const SliverToBoxAdapter(child: CustomerBar()),
                   SliverToBoxAdapter(child: SizedBox(height: height * 0.02)),
-                  SliverToBoxAdapter(child: SearchBarAndFilterButton()),
+                  const SliverToBoxAdapter(child: SearchBarAndFilterButton()),
                   SliverToBoxAdapter(child: SizedBox(height: height * 0.02)),
-                  SliverToBoxAdapter(child: CategoryBar()),
+                  const SliverToBoxAdapter(child: CategoryBar()),
                   SliverToBoxAdapter(
                     child: HomePageItemBuilder(height: height, width: width),
                   ),

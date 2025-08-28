@@ -54,10 +54,10 @@ class CategoryBar extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: MyColors.greyDark,
                         foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                           horizontal: 18,
                           vertical: 10,
                         ),
@@ -74,11 +74,14 @@ class CategoryBar extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         foregroundColor: MyColors.greyDark,
-                        side: BorderSide(color: MyColors.greyDark, width: 1.2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                        side: const BorderSide(
+                          color: MyColors.greyDark,
+                          width: 1.2,
                         ),
-                        padding: EdgeInsets.symmetric(
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                        ),
+                        padding: const EdgeInsets.symmetric(
                           horizontal: 18,
                           vertical: 10,
                         ),
