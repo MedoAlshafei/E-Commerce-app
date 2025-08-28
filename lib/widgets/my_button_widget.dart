@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/theme/my_colors.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton({
@@ -17,23 +18,22 @@ class MyButton extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final width = size.width;
     final height = size.height;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
-      child: Material(
-        elevation: 5,
-        color: color ?? Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(20),
-        child: MaterialButton(
-          onPressed: onTap,
-          minWidth: width * 0.8,
-          height: height * 0.07,
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onPrimary,
-              fontSize: 20,
-            ),
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          elevation: 10,
+          minimumSize: Size(width * 0.8, height * 0.07),
+          backgroundColor: color ?? MyColors.buttonBackground,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
           ),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(color: color ?? MyColors.buttonText, fontSize: 18),
         ),
       ),
     );

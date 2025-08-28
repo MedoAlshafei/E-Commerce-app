@@ -21,4 +21,5 @@ class MyColors {
 
   // Button colors
   static const Color buttonText = Color(0xffF2F2F2);
+  static const Color buttonBackground = Color(0xFF292526);
 }

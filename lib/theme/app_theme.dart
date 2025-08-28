@@ -20,7 +20,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: MyColors.primary,
+          backgroundColor: MyColors.buttonBackground,
           foregroundColor: MyColors.buttonText,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           textStyle: GoogleFonts.encodeSans(fontWeight: FontWeight.bold),

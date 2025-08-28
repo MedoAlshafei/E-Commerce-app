@@ -22,8 +22,8 @@ class SearchBarAndFilterButton extends StatelessWidget {
           onPressed: () {},
           iconSize: 24,
           style: IconButton.styleFrom(
-            backgroundColor: MyColors.greyDark,
-            foregroundColor: Colors.white,
+            backgroundColor: MyColors.buttonBackground,
+            foregroundColor: MyColors.buttonText,
             padding: const EdgeInsets.all(8),
             fixedSize: const Size(55, 55),
             shape: const RoundedRectangleBorder(
