@@ -27,9 +27,17 @@ class AppTheme {
         ),
       ),
       inputDecorationTheme: const InputDecorationTheme(
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(color: MyColors.greyDark, width: 1),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(color: MyColors.grey, width: 1),
+        ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: MyColors.primary),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(color: MyColors.greyDark, width: 1),
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(

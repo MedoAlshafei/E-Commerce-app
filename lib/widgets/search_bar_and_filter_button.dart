@@ -14,18 +14,6 @@ class SearchBarAndFilterButton extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Search',
               prefixIcon: Icon(Icons.search),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-                borderSide: BorderSide(color: MyColors.greyDark, width: 1),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-                borderSide: BorderSide(color: Colors.grey, width: 1),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-                borderSide: BorderSide(color: MyColors.greyDark, width: 1),
-              ),
             ),
           ),
         ),
