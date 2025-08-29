@@ -34,7 +34,7 @@ class ItemCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${product.title.toString().substring(0, 15)}...',
+                      '${product.title.toString().split(' ').take(2).join(' ')}',
                       overflow: TextOverflow.values.first,
                       maxLines: 1,
                       style: themeOf.textTheme.bodyMedium?.copyWith(
