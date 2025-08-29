@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shop/theme/my_colors.dart';
 
 class MyTextField extends StatelessWidget {
-  const MyTextField({super.key, this.hinttext, this.onChanged, this.inputType});
+  const MyTextField({super.key, this.hintText, this.onChanged, this.inputType});
 
-  final String? hinttext;
+  final String? hintText;
   final Function(String)? onChanged;
   final TextInputType? inputType;
 
@@ -19,11 +19,12 @@ class MyTextField extends StatelessWidget {
         vertical: height * 0.01,
       ),
       child: TextField(
+        onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
         onChanged: onChanged,
         keyboardType: inputType,
         cursorColor: MyColors.greyDark,
         decoration: InputDecoration(
-          hintText: hinttext,
+          hintText: hintText,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
             borderSide: BorderSide(color: MyColors.greyDark, width: 1),
