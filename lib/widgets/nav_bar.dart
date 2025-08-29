@@ -107,6 +107,7 @@ class _NavBarState extends State<NavBar> {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
+                    // shape: BoxShape.circle,
                     color:
                         _navItems[index].isSelected
                             ? Colors.white.withOpacity(0.15)
