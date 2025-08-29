@@ -14,7 +14,7 @@ class AppTheme {
         elevation: 0,
         titleTextStyle: GoogleFonts.encodeSans(
           color: MyColors.black,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
           fontSize: 24,
         ),
       ),
