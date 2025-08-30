@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop/models/product_model.dart';
 import 'package:shop/widgets/build_circular_button.dart';
+import 'package:shop/widgets/builder_item_description.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key, required this.product});
@@ -27,7 +28,7 @@ class ProductPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Container(
-                        height: size.height * 0.5,
+                        height: size.height * 0.45,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.blue[50],
@@ -76,93 +77,13 @@ class ProductPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Row(
-                          children: [
-                            IconButton(
-                              onPressed: () {},
-                              style: IconButton.styleFrom(
-                                shape: CircleBorder(
-                                  side: BorderSide(
-                                    color: Colors.grey[300]!,
-                                    width: 1,
-                                  ),
-                                ),
-                              ),
-                              icon: const Icon(Icons.remove),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0,
-                              ),
-                              child: const Text(
-                                '1',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {},
-                              style: IconButton.styleFrom(
-                                shape: CircleBorder(
-                                  side: BorderSide(
-                                    color: Colors.grey[300]!,
-                                    width: 1,
-                                  ),
-                                ),
-                              ),
-                              icon: const Icon(Icons.add),
-                            ),
-                          ],
-                        ),
-                        // Text(
-                        //   '\$${product.price}',
-                        //   style: const TextStyle(
-                        //     fontSize: 24,
-                        //     fontWeight: FontWeight.bold,
-                        //     color: Colors.green,
-                        //   ),
-                        // ),
+                        _builderItemCounterSelector(),
                       ],
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        const Icon(Icons.star, color: Colors.amber),
-                        const SizedBox(width: 4),
-                        Text(
-                          product.rating.rate.toStringAsFixed(1),
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          '(${product.rating.count} reviews)',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 24),
-                    const Text(
-                      'Description',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
                     ),
                     const SizedBox(height: 8),
-                    Text(
-                      product.description,
-                      style: const TextStyle(fontSize: 16, height: 1.5),
-                    ),
-                    const SizedBox(height: 32),
+                    _builderItemRating(),
+                    const SizedBox(height: 8),
+                    BuilderItemDescription(product: product),
                   ],
                 ),
               ),
@@ -170,6 +91,60 @@ class ProductPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _builderItemRating() {
+    return Row(
+      children: [
+        const Icon(Icons.star, color: Colors.amber),
+        const SizedBox(width: 4),
+        Text(
+          product.rating.rate.toStringAsFixed(1),
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+        ),
+        const SizedBox(width: 8),
+        Text(
+          '(${product.rating.count} reviews)',
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: Colors.grey[600],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _builderItemCounterSelector() {
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () {},
+          style: IconButton.styleFrom(
+            shape: CircleBorder(
+              side: BorderSide(color: Colors.grey[300]!, width: 1),
+            ),
+          ),
+          icon: const Icon(Icons.remove),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: const Text(
+            '1',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ),
+        IconButton(
+          onPressed: () {},
+          style: IconButton.styleFrom(
+            shape: CircleBorder(
+              side: BorderSide(color: Colors.grey[300]!, width: 1),
+            ),
+          ),
+          icon: const Icon(Icons.add),
+        ),
+      ],
     );
   }
 }
