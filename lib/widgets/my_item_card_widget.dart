@@ -22,7 +22,7 @@ class ItemCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Flexible(
-            flex: 3,
+            flex: 5,
             child: _builderItemImageAndFavoriteButton(height, width),
           ),
           const SizedBox(height: 4),
@@ -37,7 +37,11 @@ class ItemCard extends StatelessWidget {
   Widget _builderProductTitle() {
     return Text(
       '${product.title.split(' ').take(3).join(' ')}',
-      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      style: const TextStyle(
+        fontSize: 14,
+        color: MyColors.textOnWhite,
+        fontWeight: FontWeight.w600,
+      ),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
     );
@@ -49,15 +53,23 @@ class ItemCard extends StatelessWidget {
       children: [
         Text(
           '\$${product.price}',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 14,
+            color: MyColors.textOnWhite,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         Row(
           children: [
-            Icon(Icons.star, color: Colors.amber[600], size: 16),
+            Icon(Icons.star, color: Colors.amber, size: 18),
             const SizedBox(width: 4),
             Text(
               product.rating.rate.toStringAsFixed(1),
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+              style: TextStyle(
+                fontSize: 12,
+                color: MyColors.textOnWhite,
+                fontWeight: FontWeight.w400,
+              ),
             ),
             // const SizedBox(width: 4),
             // Text(
