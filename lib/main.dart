@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop/screens/home_page.dart';
-import 'package:shop/screens/product_page.dart';
-import 'package:shop/screens/update_product_page.dart';
+import 'package:shop/routes/app_routers.dart';
 import 'package:shop/theme/app_theme.dart';
 
 void main() async {
@@ -22,12 +20,8 @@ class _StoreAppState extends State<StoreApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: HomePage(),
-      routes: {
-        HomePage.id: (context) => HomePage(),
-        UpdateProductPage.id: (context) => UpdateProductPage(),
-        ProductPage.id: (context) => ProductPage(),
-      },
+      initialRoute: AppRouters.initialRoute,
+      onGenerateRoute: AppRouters.generateRoute,
     );
   }
 }

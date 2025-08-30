@@ -42,16 +42,10 @@ class HomePage extends StatelessWidget {
                   SliverToBoxAdapter(
                     child: HomePageItemBuilder(height: height, width: width),
                   ),
-                  // Add bottom padding so content doesn't get hidden behind floating navbar
-                  SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: height * 0.12,
-                    ), // Adjust this value based on your navbar height
-                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: height * 0.12)),
                 ],
               ),
             ),
-            // Floating navigation bar at the bottom
             Positioned(
               bottom: 0,
               left: 0,
