@@ -93,7 +93,10 @@ class ItemCard extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
-          child: Image.network(product.image, fit: BoxFit.contain),
+          child: Hero(
+            tag: product.id,
+            child: Image.network(product.image, fit: BoxFit.contain),
+          ),
         ),
         Positioned(
           top: 0,
