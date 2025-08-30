@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/models/product_model.dart';
-import 'package:shop/screens/update_product_page.dart';
+import 'package:shop/screens/product_page.dart';
 import 'package:shop/theme/my_colors.dart';
 
 class ItemCard extends StatelessWidget {
@@ -14,22 +14,27 @@ class ItemCard extends StatelessWidget {
     final width = size.width;
     final height = size.height;
 
-    return Container(
-      width: width * 0.45,
-      constraints: BoxConstraints(maxHeight: height * 0.35),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Flexible(
-            flex: 5,
-            child: _builderItemImageAndFavoriteButton(height, width),
-          ),
-          const SizedBox(height: 4),
-          Flexible(child: _builderProductTitle()),
-          const SizedBox(height: 2),
-          _builderProductPrice(),
-        ],
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, ProductPage.id, arguments: product);
+      },
+      child: Container(
+        width: width * 0.45,
+        constraints: BoxConstraints(maxHeight: height * 0.35),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 5,
+              child: _builderItemImageAndFavoriteButton(height, width),
+            ),
+            const SizedBox(height: 4),
+            Flexible(child: _builderProductTitle()),
+            const SizedBox(height: 2),
+            _builderProductPrice(),
+          ],
+        ),
       ),
     );
   }
