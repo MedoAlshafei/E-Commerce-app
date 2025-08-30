@@ -76,7 +76,7 @@ class _NavBarState extends State<NavBar> {
           height: 60,
           margin: EdgeInsets.symmetric(horizontal: widget.width * 0.04),
           decoration: BoxDecoration(
-            color: MyColors.greyDark,
+            color: MyColors.darkGrey,
             borderRadius: BorderRadius.all(Radius.circular(44)),
             boxShadow: [
               BoxShadow(

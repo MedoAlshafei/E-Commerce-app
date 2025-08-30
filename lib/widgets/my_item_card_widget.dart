@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop/models/product_model.dart';
 import 'package:shop/screens/update_product_page.dart';
+import 'package:shop/theme/my_colors.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({super.key, required this.product});
@@ -9,66 +10,94 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeOf = Theme.of(context);
     final size = MediaQuery.of(context).size;
     final width = size.width;
     final height = size.height;
 
-    return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, UpdateProductPage.id, arguments: product);
-      },
-      child: Center(
-        child: Stack(
-          clipBehavior: Clip.none,
+    return Container(
+      width: width * 0.45,
+      constraints: BoxConstraints(maxHeight: height * 0.35),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            flex: 3,
+            child: _builderItemImageAndFavoriteButton(height, width),
+          ),
+          const SizedBox(height: 4),
+          Flexible(child: _builderProductTitle()),
+          const SizedBox(height: 2),
+          _builderProductPrice(),
+        ],
+      ),
+    );
+  }
+
+  Widget _builderProductTitle() {
+    return Text(
+      '${product.title.split(' ').take(3).join(' ')}',
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+
+  Widget _builderProductPrice() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          '\$${product.price}',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        Row(
           children: [
-            Card(
-              color: themeOf.cardColor,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: width * 0.04,
-                  vertical: height * 0.015,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${product.title.toString().split(' ').take(2).join(' ')}',
-                      overflow: TextOverflow.values.first,
-                      maxLines: 1,
-                      style: themeOf.textTheme.bodyMedium?.copyWith(
-                        color: Colors.grey,
-                      ),
-                    ),
-                    SizedBox(height: height * 0.01),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          r'$'
-                          '${product.price.toString()}',
-                          style: themeOf.textTheme.titleLarge,
-                        ),
-                        Icon(
-                          Icons.favorite,
-                          color: themeOf.colorScheme.secondary,
-                        ),
-                      ],
-                    ),
-                  ],
+            Icon(Icons.star, color: Colors.amber[600], size: 16),
+            const SizedBox(width: 4),
+            Text(
+              product.rating.rate.toStringAsFixed(1),
+              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+            ),
+            // const SizedBox(width: 4),
+            // Text(
+            //   '(${product.rating.count})',
+            //   style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+            // ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _builderItemImageAndFavoriteButton(double height, double width) {
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+          child: Image.network(product.image, fit: BoxFit.contain),
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              radius: 16,
+              backgroundColor: MyColors.darkGrey,
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.favorite_border_rounded,
+                  color: Colors.white,
+                  size: 16,
                 ),
               ),
             ),
-            Positioned(
-              right: 26,
-              top: -45,
-              child: Image.network(product.image, height: 70, width: 70),
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

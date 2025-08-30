@@ -22,12 +22,12 @@ class MyTextField extends StatelessWidget {
         onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
         onChanged: onChanged,
         keyboardType: inputType,
-        cursorColor: MyColors.greyDark,
+        cursorColor: MyColors.darkGrey,
         decoration: InputDecoration(
           hintText: hintText,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
-            borderSide: BorderSide(color: MyColors.greyDark, width: 1),
+            borderSide: BorderSide(color: MyColors.darkGrey, width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -35,7 +35,7 @@ class MyTextField extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
-            borderSide: BorderSide(color: MyColors.greyDark, width: 1),
+            borderSide: BorderSide(color: MyColors.darkGrey, width: 1),
           ),
         ),
       ),

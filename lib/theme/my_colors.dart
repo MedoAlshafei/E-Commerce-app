@@ -6,7 +6,7 @@ class MyColors {
   static const Color primaryLight = Color(0xffF2F2F2);
   static const Color grey = Color(0xFFA3A1A2);
   static const Color grey2 = Color(0xFF787676);
-  static const Color greyDark = Color(0xFF292526);
+  static const Color darkGrey = Color(0xFF292526);
   static const Color black = Color(0xFF121111);
 
   // Background colors

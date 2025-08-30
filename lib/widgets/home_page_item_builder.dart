@@ -17,7 +17,7 @@ class HomePageItemBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: height * 0.08, // بدل 65
+        top: height * 0.03, // بدل 65
         left: 0, // بدل 16
         right: 0, // بدل 16
         // Removed bottom padding since it's handled at page level
@@ -34,9 +34,9 @@ class HomePageItemBuilder extends StatelessWidget {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio:
-                    width / (height * 0.30), // تقريباً 1.6 حسب النسبة الأصلية
-                crossAxisSpacing: width * 0.06, // بدل 8
-                mainAxisSpacing: height * 0.07, // بدل 60
+                    width / (height * 0.55), // تقريباً 1.6 حسب النسبة الأصلية
+                crossAxisSpacing: width * 0.04, // بدل 8
+                mainAxisSpacing: height * 0.03, // بدل 60
               ),
               itemBuilder: (BuildContext context, int index) {
                 return ItemCard(product: products[index]);

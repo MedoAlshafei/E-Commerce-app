@@ -29,7 +29,7 @@ class AppTheme {
       inputDecorationTheme: const InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(color: MyColors.greyDark, width: 1),
+          borderSide: BorderSide(color: MyColors.darkGrey, width: 1),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -37,12 +37,12 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(color: MyColors.greyDark, width: 1),
+          borderSide: BorderSide(color: MyColors.darkGrey, width: 1),
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         elevation: 0,
-        backgroundColor: MyColors.greyDark,
+        backgroundColor: MyColors.darkGrey,
         selectedItemColor: MyColors.primaryLight,
         unselectedItemColor: MyColors.grey2,
         type: BottomNavigationBarType.fixed,

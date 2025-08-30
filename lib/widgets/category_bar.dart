@@ -34,14 +34,14 @@ class CategoryBar extends StatelessWidget {
                     children: [
                       Icon(
                         category['icon'] as IconData,
-                        color: isSelected ? Colors.white : MyColors.greyDark,
+                        color: isSelected ? Colors.white : MyColors.darkGrey,
                         size: 16,
                       ),
                       const SizedBox(width: 6),
                       Text(
                         category['name'] as String,
                         style: TextStyle(
-                          color: isSelected ? Colors.white : MyColors.greyDark,
+                          color: isSelected ? Colors.white : MyColors.darkGrey,
                           fontWeight: FontWeight.w500,
                           fontSize: 12,
                         ),
@@ -52,7 +52,7 @@ class CategoryBar extends StatelessWidget {
                     return ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: MyColors.greyDark,
+                        backgroundColor: MyColors.darkGrey,
                         foregroundColor: Colors.white,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -73,9 +73,9 @@ class CategoryBar extends StatelessWidget {
                         });
                       },
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: MyColors.greyDark,
+                        foregroundColor: MyColors.darkGrey,
                         side: const BorderSide(
-                          color: MyColors.greyDark,
+                          color: MyColors.darkGrey,
                           width: 1.2,
                         ),
                         shape: const RoundedRectangleBorder(

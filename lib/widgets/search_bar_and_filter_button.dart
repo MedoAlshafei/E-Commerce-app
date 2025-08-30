@@ -11,7 +11,7 @@ class SearchBarAndFilterButton extends StatelessWidget {
         Expanded(
           child: TextField(
             onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
-            cursorColor: MyColors.greyDark,
+            cursorColor: MyColors.darkGrey,
             decoration: const InputDecoration(
               hintText: 'Search',
               prefixIcon: Icon(Icons.search),
