@@ -24,36 +24,52 @@ class _BuilderItemDescriptionState extends State<BuilderItemDescription> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Description',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
         const SizedBox(height: 8),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.product.description,
-              maxLines: _isExpanded ? null : widget.trimLines,
-              overflow:
-                  _isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
-            ),
-            if (widget.product.description.length > 100)
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _isExpanded = !_isExpanded;
-                  });
-                },
-                child: Text(
-                  _isExpanded ? 'Read Less' : 'Read More',
-                  style: TextStyle(
-                    color: MyColors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final TextPainter textPainter = TextPainter(
+              text: TextSpan(
+                text: widget.product.description,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-          ],
+              maxLines: widget.trimLines,
+              textDirection: TextDirection.ltr,
+            )..layout(maxWidth: constraints.maxWidth);
+
+            final bool didExceedMaxLines = textPainter.didExceedMaxLines;
+
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.product.description,
+                  maxLines: _isExpanded ? null : widget.trimLines,
+                  overflow:
+                      didExceedMaxLines && !_isExpanded
+                          ? TextOverflow.ellipsis
+                          : TextOverflow.visible,
+                ),
+                if (didExceedMaxLines)
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isExpanded = !_isExpanded;
+                      });
+                    },
+                    child: Text(
+                      _isExpanded ? 'Read Less' : 'Read More',
+                      style: TextStyle(
+                        color: MyColors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+              ],
+            );
+          },
         ),
         const SizedBox(height: 8),
       ],
