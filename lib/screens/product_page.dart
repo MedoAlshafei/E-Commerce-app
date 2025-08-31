@@ -25,24 +25,7 @@ class ProductPage extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Hero(
-                    tag: product.id,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Container(
-                        height: size.height * 0.45,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[50],
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Image.network(
-                          product.image,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
+                  _builderHeroImage(size),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -93,6 +76,24 @@ class ProductPage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _builderHeroImage(Size size) {
+    return Hero(
+      tag: product.id,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Container(
+          height: size.height * 0.45,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.grey[50],
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Image.network(product.image, fit: BoxFit.contain),
         ),
       ),
     );
