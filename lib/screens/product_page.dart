@@ -73,6 +73,8 @@ class ProductPage extends StatelessWidget {
                         Expanded(
                           child: Text(
                             product.title,
+                            maxLines: 1,
+                            // overflow: TextOverflow.visible,
                             style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w600,
