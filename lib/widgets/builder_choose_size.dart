@@ -9,7 +9,7 @@ class BuilderChooseSize extends StatefulWidget {
 }
 
 class _BuilderChooseSizeState extends State<BuilderChooseSize> {
-  String _selectedSize = 'M';
+  String _selectedSize = 'S';
 
   @override
   Widget build(BuildContext context) {
