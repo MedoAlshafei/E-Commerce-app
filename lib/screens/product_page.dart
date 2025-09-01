@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop/models/product_model.dart';
 import 'package:shop/widgets/build_circular_button.dart';
+import 'package:shop/widgets/builder_choose_size.dart';
 import 'package:shop/widgets/builder_item_counter_selector.dart';
 import 'package:shop/widgets/builder_item_description.dart';
 import 'package:shop/widgets/builder_item_rating.dart';
@@ -71,6 +72,8 @@ class ProductPage extends StatelessWidget {
                     BuilderItemRating(product: product),
                     const SizedBox(height: 8),
                     BuilderItemDescription(product: product),
+                    SizedBox(height: size.height * 0.02),
+                    BuilderChooseSize(),
                   ],
                 ),
               ),
