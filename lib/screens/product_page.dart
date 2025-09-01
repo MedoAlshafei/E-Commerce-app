@@ -56,8 +56,8 @@ class ProductPage extends StatelessWidget {
                         Expanded(
                           child: Text(
                             product.title,
-                            maxLines: 1,
-                            // overflow: TextOverflow.visible,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w600,
@@ -90,7 +90,7 @@ class ProductPage extends StatelessWidget {
           height: size.height * 0.45,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.grey[50],
+            color: Colors.grey[100],
             borderRadius: BorderRadius.circular(16),
           ),
           child: Image.network(product.image, fit: BoxFit.contain),
