@@ -22,7 +22,7 @@ class BuilderItemRating extends StatelessWidget {
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w400,
-            color: Colors.grey[600],
+            color: Color(0xFF347EFB),
           ),
         ),
       ],
