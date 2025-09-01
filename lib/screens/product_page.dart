@@ -20,65 +20,62 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                _builderHeroImage(size),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    BuildCircularButton(
+                      height: padding.top - 8,
+                      width: padding.left + 24,
+                      icon: Icons.arrow_back_ios_new,
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    BuildCircularButton(
+                      height: padding.top - 8,
+                      width: padding.right + 24,
+                      icon: Icons.favorite_border,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _builderHeroImage(size),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      BuildCircularButton(
-                        height: padding.top - 8,
-                        width: padding.left + 24,
-                        icon: Icons.arrow_back_ios_new,
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      BuildCircularButton(
-                        height: padding.top - 8,
-                        width: padding.right + 24,
-                        icon: Icons.favorite_border,
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            product.title,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
-                            ),
+                      Expanded(
+                        child: Text(
+                          product.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                        BuilderItemCounterSelector(),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    BuilderItemRating(product: product),
-                    const SizedBox(height: 8),
-                    BuilderItemDescription(product: product),
-                    SizedBox(height: size.height * 0.02),
-                    BuilderChooseSize(),
-                  ],
-                ),
+                      ),
+                      BuilderItemCounterSelector(),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  BuilderItemRating(product: product),
+                  const SizedBox(height: 8),
+                  BuilderItemDescription(product: product),
+                  SizedBox(height: size.height * 0.02),
+                  Row(children: [BuilderChooseSize()]),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
